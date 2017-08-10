@@ -11,7 +11,12 @@
 
      <!-- 表示该消费者要到该服务注册中心查找相应的服务提供者 -->
     <dubbo:registry protocol="zookeeper" address="127.0.0.1:2181"/>
+    
+   <!-- 	 这个协议要和服务提供者的协议一致，端口和和服务提供者的端口没什么关系，指的是本程序的端口 -->
+     <dubbo:protocol accesslog="true" name="dubbo" port="20880" />
 
-    <dubbo:reference interface="com.dubbo.test.service.UserService" id="userService" />
+    <dubbo:reference	interface="com.dubbo.test.service.UserService" 
+			    		id="userService"
+			    		protocol="dubbo" />
 
 </beans>
