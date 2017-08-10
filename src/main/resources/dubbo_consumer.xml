@@ -15,8 +15,13 @@
    <!-- 	 这个协议要和服务提供者的协议一致，端口和和服务提供者的端口没什么关系，指的是本程序的端口 -->
      <dubbo:protocol accesslog="true" name="dubbo" port="20880" />
 
+	<!-- check="false"(默认):启动时不检查，只有真正使用时才检查(这是如果你还不存在则报错)
+		 cluster="failover"(默认):集群策略，失败迁移  -->
     <dubbo:reference	interface="com.dubbo.test.service.UserService" 
 			    		id="userService"
-			    		protocol="dubbo" />
+			    		protocol="dubbo"
+			    		check="false"
+			    		cluster="failover" 
+			    		/>
 
 </beans>

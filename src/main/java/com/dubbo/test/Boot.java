@@ -13,13 +13,13 @@ public class Boot {
 	public static void main(String[] args) {
 		
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("dubbo_consumer.xml");
-		UserService userService = (UserService) context.getBean("userService");
-		System.out.println(userService.getClass());
-		
-		List<User> list = userService.getUserListByAge(23);
-		for (User user : list) {
+		for(int i=0;i<10;i++){
+			UserService userService = (UserService) context.getBean("userService");
+			System.out.println(userService.getClass());
+			User user = userService.getUserById("0001");
 			System.out.println(user);
 		}
+	
 		
 	}
 
